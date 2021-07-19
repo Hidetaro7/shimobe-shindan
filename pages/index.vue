@@ -1,19 +1,21 @@
 <template>
-  <div class="container flex justify-center items-center flex-col">
-    <h1>SHIMOBE 診断</h1>
-    <p>
-      <nuxt-link to="/q1" class="button">はじめる</nuxt-link>
+  <div class="container h-screen flex justify-center items-center flex-col">
+    <h1 class="text-center">
+      <img class="w-1/4 mb-4 mx-auto" src="~assets/image/neurona_logo_black.svg" alt="neurona.jp">
+      <Logo class="w-1/2 mb-24 mx-auto" />
+    </h1>
+    <p class="w-full">
+      <nuxt-link to="/q1" class="block">
+        <img class="w-3/12 mx-auto" src="~assets/image/label-start.svg" alt="スタート">
+      </nuxt-link>
     </p>
   </div>
 
 </template>
 
 <script>
-</script>
+export default {
 
-<style>
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+  layout: "opening"
 }
-
-</style>
+</script>

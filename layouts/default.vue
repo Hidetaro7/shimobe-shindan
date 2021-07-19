@@ -1,7 +1,8 @@
 <template>
   <div class="">
+    <Header />
     <transition name="layout">
-    <Nuxt />
+      <Nuxt />
     </transition>
   </div>
 </template>
@@ -31,5 +32,15 @@ export default {
 .layout-leave-active {
   opacity: 0;
   transform: translateX(-100px);
+}
+
+
+.rise-enter-active,
+.rise-leave-active {
+  transition: opacity 0.5s, transform .3s;
+}
+.rise-enter{
+  opacity: 0;
+  transform: translateY(100px);
 }
 </style>

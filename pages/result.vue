@@ -1,32 +1,51 @@
 <template>
-  <div class="prose px-4 mx-auto h-screen flex justify-center items-center flex-col">
-    <h1>診断結果</h1>
+  <div class="container px-4 pt-32">
+    <!-- <h1>診断結果</h1>
     <p class="mb-2">おつかれさまでした！</p>
-    <div class="text-xl">あなたのSHIMOBE度は</div>
-    <div class="text-5xl font-bold my-8 p-4 bg-gray-100">{{result.title}}</div>
-    <div class="text-xl mb-8" v-html="result.sub"></div>
-    <iframe class="w-full" width="560" height="315" src="https://www.youtube.com/embed/zfbOjGuj8Zc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p><nuxt-link to="/">もういっかいやる</nuxt-link></p>
+    <div class="text-xl">あなたのSHIMOBE度は</div> -->
+    <!-- <div class="text-5xl font-bold my-8 p-4 bg-gray-100">{{result.title}}</div> -->
+    <!-- <div class="text-xl mb-8" v-html="result.sub"></div> -->
+    <h1 class="flex items-center justify-center font-bold text-4xl mb-8">
+      <img :src="catImageURL(result.badge)" alt="" class="h-16 mr-2 my-0 w-auto">
+      <span>
+        {{result.title}}
+      </span>
+    </h1>
+    <img :src="catImageURL(result.image)" alt="" class=" mx-auto w-auto max-w-xl">
+    <div class="mb-16 prose mx-auto">
+      {{result.comment}}
+    </div>
+    <iframe class="mx-auto max-w-full" width="560" height="315" src="https://www.youtube.com/embed/zfbOjGuj8Zc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p class="py-8 text-center"><nuxt-link to="/" class="button">もういっかいやる</nuxt-link></p>
   </div>
 </template>
 
 <script>
+import results from "@/assets/json/questions.json"
 export default {
+  methods: {
+    catImageURL(path) {
+      return require(`@/assets/image/${path}`);
+    },
+  },
   computed: {
     result() {
-      console.log(this.$store.state.answers)
       const valueTrues = this.$store.state.answers.filter(res => res.value === "true")
-      const resData = {}
+      const resultsData = results.results;
+
+      let ids = 0
       if(valueTrues.length === 12) {
-        resData.title = "極上のしもべ"
+        ids = 1
       } else if(valueTrues.length >= 10) {
-        resData.title = "立派なしもべ"
+        ids = 2
       } else if(valueTrues.length >= 5) {
-        resData.title = "そこそこのしもべ"
+        ids = 3
       } else if(valueTrues.length <= 4) {
-        resData.title = "しもべビギナー"
+        ids = 4
       }
-      resData.sub = `<b>${valueTrues.length}/12</b>に「はい」と答えました`
+      const resData = resultsData.find(res => res.rank === ids);
+     // console.log(resData)
+      //resData.sub = `<b>${valueTrues.length}/12</b>に「はい」と答えました`
       return resData;
     }
   }

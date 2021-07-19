@@ -68,5 +68,5 @@ export default {
   },
   router: {
     base: '/shimobe-shindan/'
-  },
+  }
 }

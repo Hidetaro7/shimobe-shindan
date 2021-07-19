@@ -1,4 +1,4 @@
-# Nuxt.jsにTailwindCSS、microCMS、SCSSを導入した雛形
+# SHIMOBE診断
 
 ## Build Setup
 

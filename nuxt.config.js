@@ -22,7 +22,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'あなたのシモベ度を計ろう、これからもご主人様の生涯に付き従い、しもべ人生を全うしよう。' },
+      { property: 'og:url',  content: 'https://shimobe-shindan.neurona.jp' },
+      { property: 'og:type',  content: 'website' },
+      { property: 'og:title',  content: 'シモベシンダン | neurona.jp' },
+      { property: 'og:description',  content: 'あなたのシモベ度を計ろう、これからもご主人様の生涯に付き従い、しもべ人生を全うしよう。' },
+      { property: 'og:site_name',  content: 'シモベシンダン' },
+      { property: 'og:image',  content: 'https://shimobe-shindan.neurona.jp/ogp.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

@@ -1,17 +1,13 @@
 <template>
   <div class="container px-4 pt-32">
-    <!-- <h1>診断結果</h1>
-    <p class="mb-2">おつかれさまでした！</p>
-    <div class="text-xl">あなたのSHIMOBE度は</div> -->
-    <!-- <div class="text-5xl font-bold my-8 p-4 bg-gray-100">{{result.title}}</div> -->
-    <!-- <div class="text-xl mb-8" v-html="result.sub"></div> -->
-    <h1 class="flex items-center justify-center font-bold text-4xl mb-8">
-      <img :src="resData.badge" alt="" class="h-16 mr-2 my-0 w-auto">
+    <div class="text-xl text-center font-bold mb-4">あなたのシンダン結果は</div>
+    <h1 class="flex items-center justify-center flex-col md:flex-row font-bold text-4xl mb-8">
+      <img :src="resData.badge" alt="" class="h-24 md:h-16 mr-2 mt-0 w-auto mb-4 md:mb-0">
       <span>
         {{resData.title}}
       </span>
     </h1>
-    <img :src="resData.image" alt="" class=" mx-auto w-auto max-w-xl">
+    <img :src="resData.image" alt="" class=" mx-auto w-full md:max-w-xl">
     <div class="mb-16 prose mx-auto">
       {{resData.comment}}
     </div>
